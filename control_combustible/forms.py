@@ -1,6 +1,6 @@
 from django import forms
 
-class Vale_combustible(forms.Form):
+class ValeCombustibleForm(forms.Form):
     fecha = forms.TimeField(label='Fecha', max_length=100)
     litros_cargados = forms.IntegerField(label='Litros cargados', max_length=6)
     matricula_aeronave = forms.CharField(label='Message', widget=forms.Textarea)

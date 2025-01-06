@@ -34,3 +34,13 @@ class receptor(models.Model):
     apellido = models.CharField(max_length=50)
     email = models.EmailField()
     
+class ValeCombustible(models.Model):
+    fecha = models.DateTimeField()
+    litros_cargados = models.IntegerField()
+    matricula_aeronave = models.ForeignKey(aeronave)
+    patente_camion = models.ForeignKey(camion)
+    motivo = models.CharField(max_length=100)
+    despachador = models.ForeignKey(despachador)
+    receptor = models.ForeignKey(receptor)
+    estanque = models.ForeignKey(estanque)
+    
