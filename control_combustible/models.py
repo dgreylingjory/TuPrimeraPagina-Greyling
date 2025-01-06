@@ -37,10 +37,9 @@ class receptor(models.Model):
 class ValeCombustible(models.Model):
     fecha = models.DateTimeField()
     litros_cargados = models.IntegerField()
-    matricula_aeronave = models.ForeignKey(aeronave)
-    patente_camion = models.ForeignKey(camion)
+    matricula_aeronave = models.CharField(aeronave, max_length=10)
+    patente_camion = models.CharField(camion, max_length=6)
     motivo = models.CharField(max_length=100)
-    despachador = models.ForeignKey(despachador)
-    receptor = models.ForeignKey(receptor)
-    estanque = models.ForeignKey(estanque)
+    despachador = models.CharField(despachador, max_length=100)
+    receptor = models.CharField(receptor, max_length=100)
     

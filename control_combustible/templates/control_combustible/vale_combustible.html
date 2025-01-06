@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+    Crear Vale - EcoFuel
+{% endblock %}
+
+{% block content %}
+    <h1>Crear vale de combustible</h1>
+    <p>
+        <form action="/control_combustible/" method="post">
+            {% csrf_token %}
+            {{ form.as_p}}
+            <button type="submit">Enviar</button>
+        </form>
+    </p>
+{% endblock %}

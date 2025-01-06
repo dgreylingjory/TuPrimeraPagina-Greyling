@@ -2,9 +2,9 @@ from django.shortcuts import render
 from .forms import ValeCombustibleForm
 from .models import ValeCombustible
 
-"""def index(request):
+def index(request):
     return render(request, 'control_combustible/index.html', {})
-"""
+
 def valeCombustible(request):
     if request.method == 'POST':
         form = ValeCombustibleForm(request.POST)
@@ -22,7 +22,7 @@ def valeCombustible(request):
             vale.save()
             return render(request, 'control_combustible/vale_combustible.html')
         
-        else:
-            form = ValeCombustibleForm()
+    else:
+        form = ValeCombustibleForm()
 
-        return render(request, 'control_combustible/vale_combustible.html', {'form': form})
+    return render(request, 'control_combustible/vale_combustible.html', {'form': form})
