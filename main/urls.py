@@ -6,5 +6,4 @@ from main import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('login/', LoginView.as_view(), name='login'),
 ]
