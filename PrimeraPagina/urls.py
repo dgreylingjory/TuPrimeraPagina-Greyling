@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from PrimeraPagina import views
+from control_combustible import views
+from main import views
 
 
 
@@ -24,6 +26,7 @@ from PrimeraPagina import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('inventario/', include('inventario.urls')),
-    path('control_combustible/', include('control_combustible.urls')),
     path('main/', include('main.urls')),
+    path('control_combustible/', include('control_combustible.urls')),
+    path('', views.index, name='index'),
 ]

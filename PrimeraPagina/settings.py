@@ -37,9 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'control_combustible',
     'inventario',
     'main',
+    'control_combustible',
 ]
 
 MIDDLEWARE = [
