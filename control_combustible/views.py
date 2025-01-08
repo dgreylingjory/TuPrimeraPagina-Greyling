@@ -3,7 +3,7 @@ from .forms import ValeCombustibleForm
 from .models import ValeCombustible
 
 def index(request):
-    return render(request, 'control_combustible/index.html', {})
+    return render(request, 'control_combustible/index.html')
 
 def vale_combustible(request):
     form = ValeCombustibleForm(request.POST)
