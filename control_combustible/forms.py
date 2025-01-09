@@ -27,11 +27,11 @@ class ValeCombustibleForm(forms.Form):
         label='Motivo', 
         max_length=100)
     despachador = forms.ModelChoiceField(
-        queryset=Despachador.objects.all(), ##permite seleccionar de clases despachador
+        queryset=Usuario.objects.all(), ##permite seleccionar de clases despachador
         label='Despachador', 
         empty_label="Seleccione un despachador",)
     receptor = forms.ModelChoiceField(
-        queryset=Receptor.objects.all(), ##permite seleccionar de clases receptor
+        queryset=Usuario.objects.all(), ##permite seleccionar de clases receptor
         label='Receptor', 
         empty_label="Seleccione un receptor",
         )

@@ -29,15 +29,7 @@ class Camion(models.Model):
     def __str__(self):
         return self.patente
 
-class Despachador(models.Model):
-    nombre = models.CharField(max_length=50)
-    apellido = models.CharField(max_length=50)
-    email = models.EmailField()
-    privilegios = models.CharField(max_length=1)
-    def __str__(self):
-        return f"{self.nombre} {self.apellido}"
-
-class Receptor(models.Model):
+class Usuario(models.Model):
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
     email = models.EmailField()
@@ -52,8 +44,8 @@ class ValeCombustible(models.Model):
     matricula_aeronave = models.ForeignKey(Aeronave, on_delete=models.CASCADE)
     patente_camion = models.ForeignKey(Camion, on_delete=models.CASCADE)
     motivo = models.CharField(max_length=100)
-    despachador = models.ForeignKey(Despachador, on_delete=models.CASCADE)
-    receptor = models.ForeignKey(Receptor, on_delete=models.CASCADE)
+    despachador = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='despachador')
+    receptor = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='receptor')
     
     def __str__(self):
         return f"Vale {self.numero_vale} - {self.fecha}"
