@@ -5,7 +5,7 @@ from .models import ValeCombustible
 def index(request):
     return render(request, 'control_combustible/index.html')
 
-##=============================== FORMULARIO CREAR VALE===============================
+##=============================== FORMULARIO CREAR VALE (Crud)========================
 def vale_combustible(request):
     ##crea una instancia del form
     form = ValeCombustibleForm(request.POST or None)
@@ -44,3 +44,8 @@ def vale_combustible(request):
         })
     
     return render(request, 'control_combustible/vale_combustible.html', {'form': form})
+
+##=============================== VER VALES (cRud)====================================
+def ver_vales(request):
+    vales = ValeCombustible.objects.all()
+    return render(request, 'control_combustible/vale_combustible_ver.html', {'vales': vales})
