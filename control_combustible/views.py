@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import ValeCombustibleForm
+from .forms import *
 from .models import ValeCombustible
 ##=============================== PAGINA PRINCIPAL ===================================
 def index(request):
@@ -47,5 +47,17 @@ def vale_combustible(request):
 
 ##=============================== VER VALES (cRud)====================================
 def ver_vales(request):
-    vales = ValeCombustible.objects.all()
-    return render(request, 'control_combustible/vale_combustible_ver.html', {'vales': vales})
+    if request.method == 'GET':
+        form = ValeCombustibleVerForm(request.GET)
+        if form.is_valid():
+            numero_vale = form.cleaned_data['numero_vale']
+            resultado = ValeCombustible.objects.filter(
+                numero_vale=numero_vale
+            )
+            return render(
+                request, 
+                'control_combustible/vale_combustible_ver_resultado.html', 
+                {'resultado' : resultado, 'form': form})
+    else:
+        form = ValeCombustibleVerForm()
+    return render(request, 'control_combustible/vale_combustible_ver.html', {'form': form})

@@ -10,7 +10,10 @@
     </h1>
 
     <div>
-        {{ vales }}
+        <form method="get" action="{% url 'ver_vales' %}"> 
+            {{ form.as_p }} 
+            <button type="submit" class="btn btn-primary">Buscar</button> 
+        </form> 
     </div>
    
     

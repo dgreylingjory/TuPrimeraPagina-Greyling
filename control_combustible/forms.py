@@ -35,3 +35,10 @@ class ValeCombustibleForm(forms.Form):
         label='Receptor', 
         empty_label="Seleccione un receptor",
         )
+
+##============================ FORMULARIO LECTURA DE VALES ==============================
+class ValeCombustibleVerForm(forms.Form):
+    numero_vale = forms.IntegerField(
+        required=True,
+        )
+    

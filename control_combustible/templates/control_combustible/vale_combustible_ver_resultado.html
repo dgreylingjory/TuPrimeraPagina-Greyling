@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+    Ver Vales - EcoFuel
+{% endblock %}
+
+{% block content %}
+    <h1>
+        Vale de Combustible
+    </h1>
+
+    <div>
+        {% if resultado %}
+            <ul>
+                {% for numero_vale in resultado %}
+                    <li>Vale {{ numero_vale.numero_vale }}</li>
+                    <li>Fecha: {{numero_vale.fecha}}</li>
+                    <li>Litros Cargados: {{numero_vale.litros_cargados}} litros</li>
+                    <li>Matrícula de Aeronave: {{numero_vale.matricula_aeronave}}</li>
+                    <li>Motivo: {{numero_vale.motivo}}</li>
+                    <li>Despachador: {{numero_vale.despachador}}</li>
+                    <li>Receptor: {{numero_vale.receptor}}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No se encontraron resultados para el número de vale ingresado.</p>
+        {% endif %}
+    </div>
+   
+    
+{% endblock %}
