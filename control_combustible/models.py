@@ -1,11 +1,14 @@
 from django.db import models
 
 # Create your models here.
+
+##============================ MODELOS PARA CONTROL DE COMBUSTIBLE ==============================
 class ModeloHelicoptero(models.Model):
     nombre_modelo = models.CharField(max_length = 10)
     capacidad_modelo = models.IntegerField()
     def __str__(self):
         return self.nombre_modelo
+    
 class Aeronave(models.Model):
     modelo = models.ForeignKey(
         ModeloHelicoptero,
@@ -40,7 +43,8 @@ class Receptor(models.Model):
     email = models.EmailField()
     def __str__(self):
         return f"{self.nombre} {self.apellido}"
-    
+
+##============================ MODELO PARA FORMULARIO DE VALE ===================================    
 class ValeCombustible(models.Model):
     numero_vale = models.IntegerField(default=0)
     fecha = models.DateField()

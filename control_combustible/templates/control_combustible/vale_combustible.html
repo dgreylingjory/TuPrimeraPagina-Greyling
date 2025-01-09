@@ -9,9 +9,9 @@
     
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}  <!-- Renders form fields as <p> elements -->
+        {{ form.as_p }}  <!-- pone el formulario en el sitio -->
         
-        <!-- Render errors for each field if there are any -->
+        <!-- si hay errores, muestra una alerta -->
         {% for field in form %}
             {% if field.errors %}
                 <div class="alert alert-danger">
@@ -22,7 +22,7 @@
             {% endif %}
         {% endfor %}
         
-        <button type="submit">Guardar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
 
     {% if mensaje %}

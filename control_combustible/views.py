@@ -1,16 +1,17 @@
 from django.shortcuts import render
 from .forms import ValeCombustibleForm
 from .models import ValeCombustible
-
+##=============================== PAGINA PRINCIPAL ===================================
 def index(request):
     return render(request, 'control_combustible/index.html')
 
+##=============================== FORMULARIO CREAR VALE===============================
 def vale_combustible(request):
-    # Create a form instance, it will be used to display the form and process data.
+    ##crea una instancia del form
     form = ValeCombustibleForm(request.POST or None)
     
     if request.method == 'POST' and form.is_valid():
-        # Get cleaned data from the form
+        ##recibe la data del form
         fecha = form.cleaned_data['fecha']
         litros_cargados = form.cleaned_data['litros_cargados']
         matricula_aeronave = form.cleaned_data['matricula_aeronave']
@@ -19,11 +20,11 @@ def vale_combustible(request):
         despachador = form.cleaned_data['despachador']
         receptor = form.cleaned_data['receptor']
 
-        # Calculate the next ValeCombustible number
+        ##calcula numero de vale
         contar_vales = ValeCombustible.objects.count()
         numero_vale = contar_vales + 1
 
-        # Create and save the ValeCombustible instance
+        ##guarda la instancia de vale
         vale = ValeCombustible(
             numero_vale=numero_vale,
             fecha=fecha,
@@ -36,7 +37,7 @@ def vale_combustible(request):
         )
         vale.save()
 
-        # Return a response
+        ##genera respuesta
         return render(request, 'control_combustible/vale_combustible_respuesta.html', {
             'form': form,
             'mensaje': 'Vale guardado correctamente'

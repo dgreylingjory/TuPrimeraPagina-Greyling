@@ -1,6 +1,7 @@
 from django import forms
 from .models import * ##para poder usar listas para seleccionar valores en los
 
+##============================ FORMULARIO CREACION DE VALE ==============================
 class ValeCombustibleForm(forms.Form):
     numero_vale = forms.IntegerField(
         required=False, 
