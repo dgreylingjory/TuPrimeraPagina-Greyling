@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+    Crear Vale - EcoFuel
+{% endblock %}
+
+{% block content %}
+    <h1>Crear Vale de Combustible</h1>
+
+    <!-- Displaying the message from the view -->
+    <div class="alert alert-info">
+        {{ mensaje }}
+    </div>
+
+    <!-- Optionally, you can provide a link or button to go back to the form page -->
+    <div class="container_text_center">
+        <div class="row align-items-center">
+            <a href="{% url 'crear_vale' %}" class="col btn btn-primary">
+                Volver al formulario
+            </a>
+            <a href="{% url 'index' %}" class="col btn btn-primary">
+                Volver a inicio de la aplicación
+            </a>
+        </div>
+    </div>
+{% endblock %}
