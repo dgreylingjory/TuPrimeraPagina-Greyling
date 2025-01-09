@@ -8,6 +8,8 @@ class ModeloHelicoptero(models.Model):
     capacidad_modelo = models.IntegerField()
     def __str__(self):
         return self.nombre_modelo
+    def describir(self):
+        return f"Modelo: {self.nombre_modelo}\nCapacidad: {self.capacidad_modelo}"
     
 class Aeronave(models.Model):
     modelo = models.ForeignKey(
@@ -19,6 +21,8 @@ class Aeronave(models.Model):
     matricula = models.CharField(max_length=6)
     def __str__(self):
         return self.matricula
+    def describir(self):
+        return f"Matrícula: {self.matricula}\nModelo: {self.modelo}\nCapacidad: {self.capacidad}"
 
 class Camion(models.Model):
     patente = models.CharField(max_length=6)
@@ -28,6 +32,8 @@ class Camion(models.Model):
     vencimiento_certificacion = models.DateField()
     def __str__(self):
         return self.patente
+    def describir(self):
+        return f"Patente: {self.patente}\nCapacidad: {self.capacidad}\nContenido: {self.contenido}\nVencimiento Filtro: {self.vencimiento_filtro}\nVencimiento Certificación: {self.vencimiento_certificacion}"
 
 class Usuario(models.Model):
     nombre = models.CharField(max_length=50)
@@ -35,6 +41,8 @@ class Usuario(models.Model):
     email = models.EmailField()
     def __str__(self):
         return f"{self.nombre} {self.apellido}"
+    def describir(self):
+        return f"Nombre: {self.nombre}\nApellido: {self.apellido}\nEmail: {self.email}"
 
 ##============================ MODELO PARA FORMULARIO DE VALE ===================================    
 class ValeCombustible(models.Model):

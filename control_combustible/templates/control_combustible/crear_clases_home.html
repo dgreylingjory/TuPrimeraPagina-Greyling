@@ -1,0 +1,33 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+    Crear datos - EcoFuel
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-center">
+        Creación de datos
+    </h1>
+    <div class="text-center">
+        Seleccione la clase de dato que quiere añadir.
+    </div>
+    <div class="container text-center">
+        <div class="row align-items-center">
+          <a class="col" href="{% url 'crear_modelo' %}">
+            <button type="button" class="btn btn-primary">Modelo de Aeronave</button>
+          </a>
+          <a class="col" href="{% url 'crear_aeronave' %}">
+            <button type="button" class="btn btn-primary">Aeronave (matrícula única)</button>
+          </a>
+          <a class="col" href="{% url 'crear_camion' %}">
+            <button type="button" class="btn btn-primary">Camión (patente única)</button>
+          </a>
+          <a class="col" href="{% url 'crear_usuario' %}">
+            <button type="button" class="btn btn-primary">Usuario (despachador y receptor)</button>
+          </a>
+
+        </div>
+    </div>
+   
+    
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+    Crear datos - EcoFuel
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-center">
+        Creación de datos
+    </h1>
+
+    <div class="text-center">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div>
+                <a>
+                    <button type="submit" class="btn btn-primary">Crear</button>
+                </a>
+                <a href="{% url 'crear_datos' %}">
+                    <button type="button" class="btn btn-primary">Volver</button>
+                </a>
+            </div>
+    </div>
+   
+    
+{% endblock %}
