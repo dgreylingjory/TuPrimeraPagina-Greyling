@@ -7,10 +7,26 @@
 {% block content %}
     <h1>Crear vale de combustible</h1>
     
-        <form action="/control_combustible/" method="post">
-            {% csrf_token %}
-            {{ form.as_ul }}
-            <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- Renders form fields as <p> elements -->
+        
+        <!-- Render errors for each field if there are any -->
+        {% for field in form %}
+            {% if field.errors %}
+                <div class="alert alert-danger">
+                    {% for error in field.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endfor %}
+        
+        <button type="submit">Guardar</button>
+    </form>
+
+    {% if mensaje %}
+        <p>{{ mensaje }}</p>
+    {% endif %}
     
 {% endblock %}

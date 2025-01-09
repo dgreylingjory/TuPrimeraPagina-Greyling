@@ -43,7 +43,7 @@ class Receptor(models.Model):
     
 class ValeCombustible(models.Model):
     numero_vale = models.IntegerField(default=0)
-    fecha = models.DateTimeField()
+    fecha = models.DateField()
     litros_cargados = models.IntegerField()
     matricula_aeronave = models.ForeignKey(Aeronave, on_delete=models.CASCADE)
     patente_camion = models.ForeignKey(Camion, on_delete=models.CASCADE)

@@ -6,7 +6,7 @@ class ValeCombustibleForm(forms.Form):
         required=False, 
         widget=forms.TextInput(attrs={'readonly': 'readonly', 'class': 'form-control'})
         )
-    fecha = (forms.TimeField(
+    fecha = (forms.DateField(
         label='Fecha', 
         widget=forms.DateInput(attrs={'type': 'date'})) ##permite entrada de fecha por seleccion de un calendario
         ) 
@@ -29,6 +29,8 @@ class ValeCombustibleForm(forms.Form):
         queryset=Despachador.objects.all(), ##permite seleccionar de clases despachador
         label='Despachador', 
         empty_label="Seleccione un despachador",)
-    receptor = forms.CharField(
+    receptor = forms.ModelChoiceField(
+        queryset=Receptor.objects.all(), ##permite seleccionar de clases receptor
         label='Receptor', 
-        max_length=100,)
+        empty_label="Seleccione un receptor",
+        )
