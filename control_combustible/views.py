@@ -7,6 +7,8 @@ def index(request):
 
 def vale_combustible(request):
     form = ValeCombustibleForm(request.POST)
+    contar_vales = ValeCombustible.objects.count()
+    numero_vale = contar_vales + 1
     if request.method == 'POST': 
         if form.is_valid():
                 ##procesa datos del form
@@ -20,11 +22,11 @@ def vale_combustible(request):
             ##guarda datos en bbdd
             vale = ValeCombustible(fecha=fecha, litros_cargados=litros_cargados, matricula_aeronave=matricula_aeronave, patente_camion=patente_camion, motivo=motivo, despachador=despachador, receptor=receptor)
             vale.save()
-            return render(request, 'control_combustible/vale_combustible.html', {'form': form, 'mensaje': 'Vale guardado correctamente'})
+            return render(request, 'control_combustible/vale_combustible_respuesta.html', {'form': form, 'mensaje': 'Vale guardado correctamente'})
             
         else:
             form = ValeCombustibleForm()
-            return render(request, 'control_combustible/vale_combustible.html', {'form': form, 'mensaje': 'Error en el formulario'})
+            return render(request, 'control_combustible/vale_combustible_respuesta.html', {'form': form, 'mensaje': 'Error en el formulario'})
             
 
     return render(request, 'control_combustible/vale_combustible.html', {'form': form})

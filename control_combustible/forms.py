@@ -2,6 +2,10 @@ from django import forms
 from .models import * ##para poder usar listas para seleccionar valores en los
 
 class ValeCombustibleForm(forms.Form):
+    numero_vale = forms.IntegerField(
+        required=False, 
+        widget=forms.TextInput(attrs={'readonly': 'readonly', 'class': 'form-control'})
+        )
     fecha = (forms.TimeField(
         label='Fecha', 
         widget=forms.DateInput(attrs={'type': 'date'})) ##permite entrada de fecha por seleccion de un calendario

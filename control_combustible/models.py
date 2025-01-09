@@ -42,11 +42,15 @@ class Receptor(models.Model):
         return f"{self.nombre} {self.apellido}"
     
 class ValeCombustible(models.Model):
+    numero_vale = models.IntegerField(default=0)
     fecha = models.DateTimeField()
     litros_cargados = models.IntegerField()
-    matricula_aeronave = models.CharField(Aeronave, max_length=10)
-    patente_camion = models.CharField(Camion, max_length=6)
+    matricula_aeronave = models.ForeignKey(Aeronave, on_delete=models.CASCADE)
+    patente_camion = models.ForeignKey(Camion, on_delete=models.CASCADE)
     motivo = models.CharField(max_length=100)
-    despachador = models.CharField(Despachador, max_length=100)
-    receptor = models.CharField(Receptor, max_length=100)
+    despachador = models.ForeignKey(Despachador, on_delete=models.CASCADE)
+    receptor = models.ForeignKey(Receptor, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return f"Vale {self.numero_vale} - {self.fecha}"
     

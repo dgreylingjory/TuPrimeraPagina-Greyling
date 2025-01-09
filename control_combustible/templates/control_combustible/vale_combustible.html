@@ -6,11 +6,11 @@
 
 {% block content %}
     <h1>Crear vale de combustible</h1>
-    <p>
+    
         <form action="/control_combustible/" method="post">
             {% csrf_token %}
-            {{ form.as_p}}
-            <button type="submit">Enviar</button>
+            {{ form.as_ul }}
+            <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
-    </p>
+    
 {% endblock %}
