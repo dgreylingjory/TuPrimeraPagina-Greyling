@@ -21,8 +21,7 @@ def vale_combustible(request):
         receptor = form.cleaned_data['receptor']
 
         ##calcula numero de vale
-        contar_vales = ValeCombustible.objects.count()
-        numero_vale = contar_vales + 1
+        numero_vale = form.cleaned_data.get('numero_vale', ValeCombustible.objects.count() + 1)
 
         ##guarda la instancia de vale
         vale = ValeCombustible(

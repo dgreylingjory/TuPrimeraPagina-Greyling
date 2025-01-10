@@ -5,7 +5,7 @@ from .models import *
 class ValeCombustibleForm(forms.Form):
     numero_vale = forms.IntegerField(
         required=False, 
-        widget=forms.TextInput(attrs={'readonly': 'readonly', 'class': 'form-control'})
+        widget=forms.TextInput(attrs={'readonly': 'readonly', 'class': 'form-control w-25'})
         )
     fecha = (forms.DateField(
         label='Fecha', 
@@ -35,6 +35,11 @@ class ValeCombustibleForm(forms.Form):
         label='Receptor', 
         empty_label="Seleccione un receptor",
         )
+    def __init__(self, *args, **kwargs):
+        ##inicializa el formulario con el numero de vale
+        super().__init__(*args, **kwargs)
+        if not kwargs.get('initial'):
+            self.fields['numero_vale'].initial = ValeCombustible.objects.count() + 1
 
 ##============================ FORMULARIO LECTURA DE VALES ==============================
 class ValeCombustibleVerForm(forms.Form):
