@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import include, path
 from control_combustible import views
 
+app_name = 'cc'
 
 urlpatterns = [
     path('', views.index, name='index'), ##pagina inicio app

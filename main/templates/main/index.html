@@ -5,6 +5,22 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Home</h1>
-    <p>Welcome to the home page!</p>
+    <h1 class="text-center">
+        EcoFuel
+    </h1>
+
+    <p class="text-center">
+        Seleccione el módulo que desea utilizar
+    </p>
+    <!-- columnas para seleccionar que hacer -->
+    <div class="container text-center">
+        <div class="row align-items-center">
+          <a class="col" href="{% url 'cc:index' %}">
+            <button class="btn btn-primary">Vales de Combustible</button>
+          </a>
+          <a class="col">
+            <button class="btn btn-outline primary" disabled>Inventario</button>
+          </a>
+        </div>
+    </div>
 {% endblock %}

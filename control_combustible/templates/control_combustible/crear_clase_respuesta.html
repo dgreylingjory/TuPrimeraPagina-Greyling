@@ -11,10 +11,10 @@
   <h3 class="text-center">Detalles del Modelo</h3>
   <pre class="text-center">{{ modelo.describir }}</pre>  <!-- Call the describir() method of the 'modelo' instance -->
   <div class="row align-items-center">
-    <a class="col" href="{% url 'crear_datos' %}">
+    <a class="col" href="{% url 'cc:crear_datos' %}">
         <button type="button" class="btn btn-primary">Volver</button>
     </a>
-    <a class="col" href="{% url 'crear_modelo' %}">
+    <a class="col" href="{% url 'cc:crear_modelo' %}">
         <button type="button" class="btn btn-primary">Añadir otro Modelo</button>
     </a>
   </div>
@@ -24,10 +24,10 @@
   <h3 class="text-center">Detalles de la Aeronave</h3>
   <pre class="text-center">{{ aeronave.describir }}</pre>
   <div class="row align-items-center">
-    <a class="col" href="{% url 'crear_datos' %}">
+    <a class="col" href="{% url 'cc:crear_datos' %}">
         <button type="button" class="btn btn-primary">Volver</button>
     </a>
-    <a class="col" href="{% url 'crear_aeronave' %}">
+    <a class="col" href="{% url 'cc:crear_aeronave' %}">
         <button type="button" class="btn btn-primary">Añadir otra Aeronave</button>
     </a>
   </div>  <!-- Call the describir() method of the 'aeronave' instance -->
@@ -37,10 +37,10 @@
   <h3 class="text-center">Detalles del Camión</h3>
   <pre class="text-center">{{ camion.describir }}</pre>  <!-- Call the describir() method of the 'camion' instance -->
   <div class="row align-items-center">
-    <a class="col" href="{% url 'crear_datos' %}">
+    <a class="col" href="{% url 'cc:crear_datos' %}">
         <button type="button" class="btn btn-primary">Volver</button>
     </a>
-    <a class="col" href="{% url 'crear_camion' %}">
+    <a class="col" href="{% url 'cc:crear_camion' %}">
         <button type="button" class="btn btn-primary">Añadir otro Camión</button>
     </a>
   </div>
@@ -50,10 +50,10 @@
   <h3 class="text-center">Detalles del Usuario</h3>
   <pre class="text-center">{{ usuario.describir }}</pre>  <!-- Call the describir() method of the 'usuario' instance -->
   <div class="row align-items-center">
-    <a class="col" href="{% url 'crear_datos' %}">
+    <a class="col" href="{% url 'cc:crear_datos' %}">
         <button type="button" class="btn btn-primary">Volver</button>
     </a>
-    <a class="col" href="{% url 'crear_usuario' %}">
+    <a class="col" href="{% url 'cc:crear_usuario' %}">
         <button type="button" class="btn btn-primary">Añadir otro Usuario</button>
     </a>
   </div>
