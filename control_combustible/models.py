@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-##============================ MODELOS PARA CONTROL DE COMBUSTIBLE ==============================
+##============================ MODELOS USADOS EN APP DE COMBUSTIBLE ==============================
 class ModeloHelicoptero(models.Model):
     nombre_modelo = models.CharField(max_length = 10)
     capacidad_modelo = models.IntegerField()
@@ -45,7 +45,7 @@ class Usuario(models.Model):
         return f"Nombre: {self.nombre}\nApellido: {self.apellido}\nEmail: {self.email}"
 
 ##============================ MODELO PARA FORMULARIO DE VALE ===================================    
-class ValeCombustible(models.Model):
+class ValeCombustible(models.Model): ##transforma la entrada del form a un objeto
     numero_vale = models.IntegerField(default=0)
     fecha = models.DateField()
     litros_cargados = models.IntegerField()

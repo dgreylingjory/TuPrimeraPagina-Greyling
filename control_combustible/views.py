@@ -2,11 +2,11 @@ from django.shortcuts import render
 from .forms import *
 from .models import ValeCombustible
 ##=============================== PAGINA PRINCIPAL ===================================
-def index(request):
+def index(request): ##autoexplicativo
     return render(request, 'control_combustible/index.html')
 
 ##=============================== FORMULARIO CREAR VALE (Crud)========================
-def vale_combustible(request):
+def vale_combustible(request): ##usa metodo POST para guardar vale en bbdd
     ##crea una instancia del form
     form = ValeCombustibleForm(request.POST or None)
     
@@ -39,13 +39,13 @@ def vale_combustible(request):
         ##genera respuesta
         return render(request, 'control_combustible/vale_combustible_respuesta.html', {
             'form': form,
-            'mensaje': 'Vale guardado correctamente'
+            'mensaje': f'Vale guardado correctamente con número {numero_vale}',
         })
     
     return render(request, 'control_combustible/vale_combustible.html', {'form': form})
 
 ##=============================== VER VALES (cRud)====================================
-def ver_vales(request):
+def ver_vales(request): ##usa metodo GET para buscar vale la bbdd
     if request.method == 'GET':
         form = ValeCombustibleVerForm(request.GET)
         if form.is_valid():
@@ -62,10 +62,10 @@ def ver_vales(request):
     return render(request, 'control_combustible/vale_combustible_ver.html', {'form': form})
 
 ##=============================== CREAR DATOS ======================================
-def crear_clases_home(request):
+def crear_clases_home(request): ##view inicio para creación de clases
     return render(request, 'control_combustible/crear_clases_home.html')
 
-def crear_modelo(request):
+def crear_modelo(request): ##view unica con metodo POST
     if request.method == 'POST': ##misma filosofia que vale_combustible
         form = ModeloForm(request.POST)
         if form.is_valid():
@@ -81,22 +81,12 @@ def crear_modelo(request):
             return render(request, 'control_combustible/crear_clase_respuesta.html', {
                 'form': form,
                 'mensaje': 'Modelo guardado correctamente',
-                'modelo': modelo,
+                'modelo': modelo, ##devuelve el modelo creado para que la pagina respuesta use metodo de clase 
             })
 
-    ## para metodo GET
     else:
         form = ModeloForm()
-        nombre_modelo = request.GET.get('nombre_modelo', None)
-        if nombre_modelo:
-            resultado = ModeloHelicoptero.objects.filter(nombre_modelo=nombre_modelo)
-            return render(
-                request,
-                'control_combustible/crear_clase_respuesta.html',
-                {'resultado': resultado, 'form': form}
-            )
-
-    
+       
     return render(request, 'control_combustible/crear_clase.html', {'form': form})
 ##views que siguen usan misma filosofia que crear_modelo
 
@@ -118,11 +108,10 @@ def crear_aeronave(request):
             return render(request, 'control_combustible/crear_clase_respuesta.html', {
                 'form': form,
                 'mensaje': 'Aeronave guardada correctamente',
-                'aeronave': aeronave  # Pass the created 'aeronave' instance
+                'aeronave': aeronave  
             })
 
         else:
-            # If the form is invalid, render the same form with error messages
             return render(request, 'control_combustible/crear_clase.html', {'form': form})
 
     else:
@@ -152,11 +141,10 @@ def crear_camion(request):
             return render(request, 'control_combustible/crear_clase_respuesta.html', {
                 'form': form,
                 'mensaje': 'Camión guardado correctamente',
-                'camion': camion  # Pass the created 'camion' instance
+                'camion': camion  
             })
 
         else:
-            # If the form is invalid, render the same form with error messages
             return render(request, 'control_combustible/crear_clase.html', {'form': form})
 
     else:
@@ -179,18 +167,15 @@ def crear_usuario(request):
             )
             usuario.save()
 
-            # Pass the created instance to the template
             return render(request, 'control_combustible/crear_clase_respuesta.html', {
                 'form': form,
                 'mensaje': 'Usuario guardado correctamente',
-                'usuario': usuario  # Pass the created 'usuario' instance
+                'usuario': usuario  
             })
         else:
-            # Handle form errors if form is not valid
             return render(request, 'control_combustible/crear_clase.html', {'form': form})
 
     else:
-        # Handle GET request
         form = UsuarioForm()
 
     return render(request, 'control_combustible/crear_clase.html', {'form': form})

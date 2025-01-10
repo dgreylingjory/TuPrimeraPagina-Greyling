@@ -42,13 +42,13 @@ class ValeCombustibleForm(forms.Form):
             self.fields['numero_vale'].initial = ValeCombustible.objects.count() + 1
 
 ##============================ FORMULARIO LECTURA DE VALES ==============================
-class ValeCombustibleVerForm(forms.Form):
+class ValeCombustibleVerForm(forms.Form): ##form para metodo GET, busca vales por su numero
     numero_vale = forms.IntegerField(
         required=True,
         )
 
 ##============================ FORMULARIO CREACION DATOS ================================
-class ModeloForm(forms.Form):
+class ModeloForm(forms.Form): ##autoexplicativo
     nombre_modelo = forms.CharField(
         required=True,
         label='Modelo de la Aeronave', 

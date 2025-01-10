@@ -7,9 +7,11 @@
 {% block content %}
 <h2 class="text-center">{{ mensaje }}</h2>
 
+<!--template es para despues de crear una clase nueva, mostrará los datos de la clase creada-->
+<!--bloques if definen la clase de modelo que esta usando el view para mostrar la UI correpondiente-->
 {% if modelo %}
   <h3 class="text-center">Detalles del Modelo</h3>
-  <pre class="text-center">{{ modelo.describir }}</pre>  <!-- Call the describir() method of the 'modelo' instance -->
+  <pre class="text-center">{{ modelo.describir }}</pre>  <!-- llama al metodo de clase describir -->
   <div class="row align-items-center">
     <a class="col" href="{% url 'cc:crear_datos' %}">
         <button type="button" class="btn btn-primary">Volver</button>
@@ -30,12 +32,12 @@
     <a class="col" href="{% url 'cc:crear_aeronave' %}">
         <button type="button" class="btn btn-primary">Añadir otra Aeronave</button>
     </a>
-  </div>  <!-- Call the describir() method of the 'aeronave' instance -->
+  </div> 
 {% endif %}
 
 {% if camion %}
   <h3 class="text-center">Detalles del Camión</h3>
-  <pre class="text-center">{{ camion.describir }}</pre>  <!-- Call the describir() method of the 'camion' instance -->
+  <pre class="text-center">{{ camion.describir }}</pre> 
   <div class="row align-items-center">
     <a class="col" href="{% url 'cc:crear_datos' %}">
         <button type="button" class="btn btn-primary">Volver</button>
@@ -48,7 +50,7 @@
 
 {% if usuario %}
   <h3 class="text-center">Detalles del Usuario</h3>
-  <pre class="text-center">{{ usuario.describir }}</pre>  <!-- Call the describir() method of the 'usuario' instance -->
+  <pre class="text-center">{{ usuario.describir }}</pre>  
   <div class="row align-items-center">
     <a class="col" href="{% url 'cc:crear_datos' %}">
         <button type="button" class="btn btn-primary">Volver</button>
